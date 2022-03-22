@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>College Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="static\style.css">
+
 </head>
+
 <body>
-    <div class="login">
-        <h1>Predict College Based On Rank</h1>
-    
-         <!-- Main Input For Receiving Query to our ML -->
-        <form action="{{ url_for('predict')}}"method="post">
-             
-            <input type="text" name="AIEEERANK" placeholder="AIEEE RANK" required="required" />
-    
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        </form>
-    
-       <br>
-       <br>
-       {{ prediction_text }}
-     </div>
+ <div class="login">
+	<h1>Predicting your College</h1>
+  <h3> Enter your Jee rank to predict the available college:</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+    <form action="{{ url_for('predict')}}"method="post" class="box">
+    	<input type="number" name="AIEEErank" placeholder="AIEEE rank" required="required" min="1" max="9878"/>
+        <button type="submit" class="btn">Predict</button>
+    </form>
+    <br>
+    <br>
+    <div class="gn">
+      {{ prediction_text }}
+    </div>
+
+ </div>
+
+
 </body>
 </html>
